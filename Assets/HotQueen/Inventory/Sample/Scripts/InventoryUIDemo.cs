@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace HotQueen.Inventory
 {
@@ -21,17 +20,17 @@ namespace HotQueen.Inventory
                     Debug.Log("Hello world");
                 });
 
-                btnInstance.OnHover.AddListener(() =>
+                btnInstance.whenHover += () =>
                 {
                     itemName.text = item.data.name;
                     itemDescription.text = item.data.description;
-                });
+                };
 
-                btnInstance.OnStopHover.AddListener(() =>
+                btnInstance.whemStopHover += () =>
                 {
                     itemName.text = "";
                     itemDescription.text = "";
-                });
+                };
 
                 if (btnInstance.TryGetComponent<Slot>(out Slot s))
                 {
